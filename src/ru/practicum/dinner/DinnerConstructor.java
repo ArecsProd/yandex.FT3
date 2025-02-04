@@ -8,36 +8,19 @@ public class DinnerConstructor {
     Random rnd = new Random();
     HashMap<String, ArrayList<String>> dishList = new HashMap<>();
 
-    void createMenu() {
-        ArrayList<String> menu1 = new ArrayList<>();
-        menu1.add("Морс");
-        menu1.add("Компот");
-        menu1.add("Кофе 3 в 1");
-        dishList.put("Напиток", menu1);
-
-        ArrayList<String> menu2 = new ArrayList<>();
-        menu2.add("Кура");
-        menu2.add("Говядина");
-        menu2.add("Утка");
-        dishList.put("Мясо", menu2);
-
-        ArrayList<String> menu3 = new ArrayList<>();
-        menu3.add("Греча");
-        menu3.add("Пюре");
-        menu3.add("Макароны");
-        dishList.put("Гарнир", menu3);
-
-        ArrayList<String> menu4 = new ArrayList<>();
-        menu4.add("Борщ");
-        menu4.add("Щи");
-        menu4.add("Уха по-фински");
-        dishList.put("Суп", menu4);
-    } // удалить по завершению, метод для тестов
+    boolean isDishListEmpty () {
+        return dishList.isEmpty();
+    }
 
     void addNewDish(String dishType, String dishName) {
         if (dishList.containsKey(dishType)) {
-            dishList.get(dishType).add(dishName);
-            System.out.println("dishList = " + dishList);
+            if (dishList.get(dishType).contains(dishName)) {
+                System.out.println("В категории " + dishType + " уже существует блюдо " + dishName + "!");
+                System.out.println("Выполняется возврат в меню");
+                return;
+            } else {
+                dishList.get(dishType).add(dishName);
+            }
         } else {
             ArrayList<String> newArray = new ArrayList<>();
             newArray.add(dishName);
