@@ -1,2 +1,2 @@
-# dinner-constructor
-Precode for sprint 3 dinner constructor
+# Dinner constructor
+Final task for sprint 3 by Yandex.Practicum
